@@ -37,7 +37,9 @@ public class ShapePanel extends JPanel {
         window.setFont(new Font("TAHOMA", Font.BOLD, 18));
         window.drawString("CREATE YOUR OWN SHAPE!", 40, 40);
 
-        //make a Shape
+        //make a Shape(x,y,w,h,c,xs,ys)
+        Shape s1 = new Shape(100,100,50,50,Color.ORANGE,5,5);
         //draw the Shape
+        s1.draw(window);
     }
 }
