@@ -1,4 +1,4 @@
-package GraphicsUnit1;
+package GraphicsUnit2;
 
 //(c) A+ Computer Science
 //www.apluscompsci.com
@@ -15,20 +15,22 @@ import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ShapePanel extends JPanel {
+public class MovingShapePanel extends JPanel implements Runnable {
 
-    public ShapePanel() {
+    private Shape sh;
+
+    public MovingShapePanel() {
         setBackground(Color.WHITE);
         setVisible(true);
+
+        //refer sh to a new Shape
+        new Thread(this).start();
     }
 
     public void update(Graphics window) {
         paint(window);
     }
 
-    /*
-	 *All of your test code should be placed in paint.
-     */
     public void paint(Graphics window) {
         window.setColor(Color.WHITE);
         window.fillRect(0, 0, getWidth(), getHeight());
@@ -37,13 +39,25 @@ public class ShapePanel extends JPanel {
         window.setFont(new Font("TAHOMA", Font.BOLD, 18));
         window.drawString("CREATE YOUR OWN SHAPE!", 40, 40);
 
-        Shape shape = new Shape(150, 150, 100, 100, Color.BLUE);
-        shape.draw(window);
+        //tell sh to move and draw
+        //this code handles the left and right walls
+        /* uncomment once Shape is built
+		 *
+		if(!(sh.getX()>=10 && sh.getX()<=730))
+		{
+			sh.setXSpeed(-sh.getXSpeed());
+		}
+         */
+        //add code to handle the top and bottom walls
+    }
 
-        Shape shape2 = new Shape(400, 150, 20, 20, Color.ORANGE);
-        shape2.draw(window);
-
-        Shape shape3 = new Shape(600, 300, 50, 50, Color.GRAY);
-        shape3.draw(window);
+    public void run() {
+        try {
+            while (true) {
+                Thread.currentThread().sleep(10);
+                repaint();
+            }
+        } catch (Exception e) {
+        }
     }
 }

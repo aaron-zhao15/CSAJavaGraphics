@@ -2,53 +2,43 @@ package GraphicsUnit1;
 
 //(c) A+ Computer Science
 //www.apluscompsci.com
-
 //Name -
 //Date -
 //Class -
 //Lab  -
-
 import javax.swing.JFrame;
 
-public class GraphicsRunner extends JFrame
-{
-	private static final int WIDTH = 800;
-	private static final int HEIGHT = 600;
+public class GraphicsRunner extends JFrame {
 
-	public GraphicsRunner(int i)
-	{
-		super("Graphics Runner");
+    private static final int WIDTH = 800;
+    private static final int HEIGHT = 600;
 
-		setSize(WIDTH,HEIGHT);
+    public GraphicsRunner(int i) {
+        super("Graphics Runner");
 
-                if(i == 0){
-                    getContentPane().add(new ShapePanel());
-                }
-                else if(i == 1){
-                    getContentPane().add(new SmileyFace());
-                }
-                else if(i == 2){
-                    getContentPane().add(new Robot());
-                }
-                else if(i == 3){
-                    getContentPane().add(new BigHouse());
-                }
-                
-		//add other classes to run them 
-		//BigHouse, Robot, or ShapePanel 
+        setSize(WIDTH, HEIGHT);
 
-		setVisible(true);
+        if (i == 0) {
+            getContentPane().add(new ShapePanel());
+        } else if (i == 1) {
+            getContentPane().add(new SmileyFace());
+        } else if (i == 2) {
+            getContentPane().add(new Robot());
+        } else if (i == 3) {
+            getContentPane().add(new BigHouse());
+        }
 
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-        
-        
+        //add other classes to run them 
+        //BigHouse, Robot, or ShapePanel 
+        setVisible(true);
 
-	public static void main( String args[] )
-	{
-		GraphicsRunner runShape = new GraphicsRunner(0);
-                GraphicsRunner runSmiley = new GraphicsRunner(1);
-                GraphicsRunner runRobot = new GraphicsRunner(2);
-                GraphicsRunner runHouse = new GraphicsRunner(3);
-	}
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public static void main(String args[]) {
+        GraphicsRunner runShape = new GraphicsRunner(0);
+        GraphicsRunner runSmiley = new GraphicsRunner(1);
+        GraphicsRunner runRobot = new GraphicsRunner(2);
+        GraphicsRunner runHouse = new GraphicsRunner(3);
+    }
 }
